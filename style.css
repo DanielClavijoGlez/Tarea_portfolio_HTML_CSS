@@ -4,11 +4,11 @@
   --color-primary: #c9a975;
   --color-secondary: #a68b60;
   --color-light: #544731;
-  --color-dark-1: #382F21;
+  --color-dark-1: #382f21;
   --color-dark-2: #302719;
   --color-progress-bar: #7d4822;
   --color-nav-footer: #e4c087;
-  --color-light-input: #E5CF8A;
+  --color-light-input: #e5cf8a;
   --color-external-links: #1f1910;
 }
 
@@ -20,4 +20,105 @@
 
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-primary);
+}
+
+/*----------header-----------*/
+header {
+  background-color: var(--color-nav-footer);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  position: sticky;
+  padding: 4px 10px;
+  padding-right: 30px;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  margin-right: auto;
+}
+
+.header-menu {
+  height: fit-content;
+}
+
+.menu-icons {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-header-menu-icon,
+.close-header-menu-icon {
+  font-size: 2.5rem;
+  transform: translateY(-1.35rem);
+  transition: opacity 200ms ease-in-out, transform 250ms ease-out;
+}
+
+.close-header-menu-icon {
+  opacity: 0;
+}
+
+#toggle-header-menu {
+  display: none;
+}
+
+.header-menu:has(> #toggle-header-menu:checked) .menu-icons > * {
+  transform: translateY(1.25rem);
+}
+
+.header-menu:has(> #toggle-header-menu:checked)
+  .menu-icons
+  > .toggle-header-menu-icon {
+  opacity: 0;
+}
+
+.header-menu:has(> #toggle-header-menu:checked)
+  .menu-icons
+  > .close-header-menu-icon {
+  opacity: 1;
+}
+
+.header-menu-links {
+  list-style: none;
+  background-color: var(--color-secondary);
+  padding: 15px;
+  position: absolute;
+  right: 10px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-20px);
+  opacity: 0;
+  transition: opacity 150ms ease-in-out, transform 150ms ease-in;
+}
+
+#toggle-header-menu:checked + .header-menu-links {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.header-menu-links > * {
+  transform: translateY(-2.5rem);
+  opacity: 0;
+  transition: transform 200ms 100ms ease-out, opacity 100ms 100ms ease-in-out;
+}
+
+#toggle-header-menu:checked + .header-menu-links > * {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header-menu-links > *:not(:last-of-type) {
+  margin-bottom: 20px;
+}
+
+.header-menu-link {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 800;
+  color: var(--color-dark-2);
+  text-decoration: none;
 }
