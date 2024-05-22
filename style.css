@@ -15,6 +15,11 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -22,6 +27,7 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   font-family: "poppins", sans-serif;
+  scroll-padding-top: 6rem;
 }
 
 body {
@@ -129,7 +135,8 @@ main {
   margin-inline: auto;
 }
 
-.about-me, #my-skills {
+.about-me,
+#my-skills {
   padding-inline: max(1rem, 5vw);
   padding-block: max(1rem, 2.5vw);
 }
@@ -141,7 +148,6 @@ main {
 
 #my-skills {
   margin-top: max(1.5rem, 2vw);
-  scroll-margin-top: 6rem;
 }
 
 .about-me::after {
@@ -237,7 +243,8 @@ main {
 @keyframes prog-bar-99-animation {
   0% {
     width: 0%;
-  } 75% {
+  }
+  75% {
     width: 99%;
   }
 }
@@ -245,7 +252,8 @@ main {
 @keyframes prog-bar-95-animation {
   0% {
     width: 0%;
-  } 75% {
+  }
+  75% {
     width: 95%;
   }
 }
@@ -253,7 +261,8 @@ main {
 @keyframes prog-bar-97-animation {
   0% {
     width: 0%;
-  } 75% {
+  }
+  75% {
     width: 97%;
   }
 }
@@ -261,7 +270,8 @@ main {
 @keyframes prog-bar-30-animation {
   0% {
     width: 0%;
-  } 75% {
+  }
+  75% {
     width: 30%;
   }
 }
@@ -269,9 +279,65 @@ main {
 @keyframes show-skill-percentage-anim {
   0% {
     opacity: 0;
-  } 50% {
+  }
+  50% {
     opacity: 0;
-  } 75% {
+  }
+  75% {
     opacity: 1;
   }
+}
+
+/*-------------banner--------------*/
+.banner {
+  width: min(91vw, 1125px);
+  margin-inline: auto;
+  margin-top: max(1.5rem, 3.5vw);
+  position: relative;
+}
+
+.banner > a,
+.banner-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-img {
+  object-fit: cover;
+  border-radius: 25px;
+  opacity: 0.45;
+}
+
+.banner-text {
+  position: absolute;
+  color: var(--color-dark-2);
+  font-weight: 800;
+  font-size: clamp(1.5rem, 2.75vw, 2rem);
+  width: fit-content;
+  height: fit-content;
+  inset: 0;
+  margin: auto;
+}
+
+.banner::before,
+.banner > a::after,
+.banner > a::before {
+  content: "";
+  position: absolute;
+  inset: 7%;
+}
+
+.banner::before {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.banner > a::after {
+  border-inline: 2px solid var(--color-dark-2);
+  transform: scale(1, 1.05);
+}
+
+.banner > a::before {
+  border-block: 2px solid var(--color-dark-2);
+  transform: scale(1.05, 1);
 }
