@@ -312,6 +312,7 @@ main {
   margin-inline: auto;
   margin-top: max(1.5rem, 3.5vw);
   position: relative;
+  border-radius: 25px;
 }
 
 .banner > a,
@@ -321,7 +322,6 @@ main {
 
 .banner-img {
   width: 100%;
-  border-radius: 25px;
   opacity: 0.45;
 }
 
@@ -522,8 +522,13 @@ footer {
     transition: opacity 400ms, transform 400ms ease-out;
   }
 
+  .banner {
+    overflow: hidden;
+  }
+
   .banner-img {
     opacity: 1;
+    transform: scale(1.1);
   }
 
   .banner-text {
@@ -545,6 +550,7 @@ footer {
 
   .banner:hover .banner-img {
     opacity: 0.45;
+    transform: scale(1);
   }
 
   .banner:hover .banner-text {
