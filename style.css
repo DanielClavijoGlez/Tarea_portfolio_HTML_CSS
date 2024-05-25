@@ -3,7 +3,8 @@
 :root {
   --color-primary: #c9a975;
   --color-secondary: #a68b60;
-  --color-light: #544731;
+  --color-light-1: #544731;
+  --color-light-2: #6e552a;
   --color-dark-1: #382f21;
   --color-dark-2: #302719;
   --color-progress-bar: #7d4822;
@@ -253,7 +254,7 @@ main {
 }
 
 .skill-percentage {
-  color: var(--color-light);
+  color: var(--color-light-1);
   animation: show-skill-percentage-anim 5s linear infinite;
 }
 
@@ -485,4 +486,120 @@ footer {
 .footer-link > * {
   font-size: clamp(2rem, 5vw, 3rem);
   color: var(--color-external-links);
+}
+
+/*------------media queries------------*/
+@media (hover: hover) {
+  .menu-icons > * {
+    cursor: pointer;
+  }
+
+  .header-menu-link {
+    position: relative;
+  }
+
+  .header-menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-image: linear-gradient(90deg, var(--color-light-2), var(--color-dark-2));
+    width: 0%;
+    transition: width 300ms;
+  }
+
+  .header-menu-link:hover::after {
+    width: 100%;
+  }
+
+  .banner-img,
+  .banner-text,
+  .banner::before,
+  .banner > a::after,
+  .banner > a::before {
+    transition: opacity 400ms, transform 400ms ease-out;
+  }
+
+  .banner-img {
+    opacity: 1;
+  }
+
+  .banner-text {
+    opacity: 0;
+  }
+
+  .banner::before {
+    transform: scale(0);
+    transition: transform 300ms;
+  }
+  
+  .banner > a::after {
+    transform: scale(1, 0);
+  }
+  
+  .banner > a::before {
+    transform: scale(0, 1);
+  }
+
+  .banner:hover .banner-img {
+    opacity: 0.45;
+  }
+
+  .banner:hover .banner-text {
+    opacity: 1;
+  }
+
+  .banner:hover::before {
+    transform: scale(1);
+  }
+
+  .banner:hover > a::after {
+    transform: scale(1, 1.05);
+  }
+  
+  .banner:hover > a::before {
+    transform: scale(1.05, 1);
+  }
+
+  .form-radio-group > * {
+    cursor: pointer;
+  }
+
+  .form-buttons > * {
+    cursor: pointer;
+    transition: padding 200ms;
+  }
+
+  .form-buttons > *:hover {
+    padding-inline: 0.6em;
+    padding-block: 0.35em;
+  }
+}
+
+@media (min-width: 900px) {
+  .menu-icons {
+    display: none;
+  }
+
+  .header-menu-links {
+    visibility: visible;
+    position: static;
+    transform: translateY(0);
+    padding: 0;
+    background-color: inherit;
+    box-shadow: none;
+    display: flex;
+    gap: max(3rem, 5vw);
+  }
+
+  .header-menu-links > * {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .header-menu-links > *:not(:last-of-type) {
+    margin-bottom: 0;
+  }
 }
