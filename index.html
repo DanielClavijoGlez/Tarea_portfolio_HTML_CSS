@@ -31,7 +31,7 @@
         <ul class="header-menu-links">
           <li><a href="#projects" class="header-menu-link">Proyectos</a></li>
           <li><a href="#my-skills" class="header-menu-link">Habilidades</a></li>
-          <li><a href="#contact" class="header-menu-link">Contacto</a></li>
+          <li><a href="#contact-form" class="header-menu-link">Contacto</a></li>
         </ul>
       </nav>
     </header>
@@ -126,5 +126,119 @@
         <figcaption class="banner-text">MIS PROYECTOS</figcaption></a
       >
     </figure>
+
+    <form id="contact-form" action="/contact" method="post">
+      <p class="form-title">Formulario de contacto</p>
+      <fieldset class="main-info">
+        <fieldset class="form-group">
+          <label class="form-label-element" for="name">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Tu nombre"
+            required
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label class="form-label-element" for="surname">Apellido</label>
+          <input
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Tu apellido"
+            required
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label class="form-label-element" for="phone-number">Teléfono</label>
+          <input
+            type="tel"
+            pattern="[0-9]{3}[0-9]{3}[0-9]{3}"
+            id="phone-number"
+            name="phone-number"
+            placeholder="Número de teléfono"
+            required
+          />
+        </fieldset>
+        <fieldset class="form-group">
+          <label class="form-label-element" for="github-username"
+            >Usuario GitHub</label
+          >
+          <input
+            type="text"
+            pattern="^@[^\s]+"
+            id="github-username"
+            name="github-username"
+            placeholder="Con el formato (@<username>)"
+            required
+          />
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="additional-info">
+        <fieldset class="question-group">
+          <legend class="question-group-title">¿Cómo me conociste?</legend>
+          <fieldset class="form-radio-group">
+            <label class="form-label-element" for="zoo">Zoo</label>
+            <input type="radio" name="how-know-me" id="zoo" value="zoo" />
+          </fieldset>
+          <fieldset class="form-radio-group">
+            <label class="form-label-element" for="cinema">Cine</label>
+            <input
+              type="radio"
+              name="how-know-me"
+              id="cinema"
+              value="cinema"
+              checked
+            />
+          </fieldset>
+          <fieldset class="form-radio-group">
+            <label class="form-label-element" for="dojo">Dojo</label>
+            <input type="radio" name="how-know-me" id="dojo" value="dojo" />
+          </fieldset>
+          <fieldset class="form-radio-group">
+            <label class="form-label-element" for="social-media"
+              >Redes sociales</label
+            >
+            <input
+              type="radio"
+              name="how-know-me"
+              id="social-media"
+              value="social-media"
+            />
+          </fieldset>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label class="form-label-element" for="more-info"
+            >Más información</label
+          >
+          <textarea
+            rows="5"
+            name="more-info"
+            id="more-info"
+            placeholder="Escribe algo que me quieras preguntar o decir"
+          ></textarea>
+        </fieldset>
+
+        <fieldset class="form-radio-group">
+          <input
+            type="checkbox"
+            name="newsletter"
+            id="newsletter"
+            value="newsletter"
+          />
+          <label class="form-label-element" for="newsletter"
+            >Quiero acceso a la newsletter</label
+          >
+        </fieldset>
+      </fieldset>
+
+      <fieldset class="form-buttons">
+        <input class="form-reset" type="reset" value="Reiniciar" />
+        <input class="form-submit" type="submit" value="Enviar" />
+      </fieldset>
+    </form>
   </body>
 </html>

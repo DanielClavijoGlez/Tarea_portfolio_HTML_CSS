@@ -341,3 +341,121 @@ main {
   border-block: 2px solid var(--color-dark-2);
   transform: scale(1.05, 1);
 }
+
+/*------------contact form------------*/
+#contact-form {
+  --_default-form-font-size: clamp(1.125rem, 2.5vw, 1.35rem);
+
+  width: min(91vw, 1000px);
+  margin-inline: auto;
+  margin-top: max(2.5rem, 4.5vw);
+  color: var(--color-dark-1);
+  background-color: var(--color-secondary);
+  padding-inline: max(2.5rem, 2.5vw);
+  padding-block: max(1.5rem, 2vw);
+  font-size: var(--_default-form-font-size);
+}
+
+#contact-form fieldset {
+  border: none;
+}
+
+#contact-form > *:not(:last-child) {
+  margin-bottom: 3.5rem;
+}
+
+#contact-form :is(input, textarea) {
+  background-color: var(--color-light-input);
+  accent-color: var(--color-dark-1);
+  caret-color: var(--color-dark-1);
+  color: var(--color-dark-1);
+  border: 2px solid var(--color-dark-2);
+}
+
+#contact-form :is(input, textarea):focus-visible {
+  outline: 2px solid var(--color-dark-2);
+}
+
+#contact-form
+  :is(.form-radio-group, .question-group-title, .form-buttons, .form-title) {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+#contact-form .form-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+}
+
+.form-group > :is(input, textarea) {
+  display: block;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: var(--_default-form-font-size);
+}
+
+.main-info {
+  --_ideal-size: 250px;
+  --_max-column-count: 2;
+  --_column-gap: 2rem;
+
+  /*creates a grid with 2 columns max*/
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        max(
+          100% / var(--_max-column-count) - var(--_column-gap),
+          var(--_ideal-size)
+        ),
+        100%
+      ),
+      1fr
+    )
+  );
+  column-gap: var(--_column-gap);
+  row-gap: 1rem;
+}
+
+.form-radio-group input {
+  transform: scale(1.4);
+  vertical-align: baseline;
+}
+
+.question-group .form-radio-group input {
+  margin-left: 0.5rem;
+}
+
+.additional-info > .form-radio-group input {
+  margin-right: 0.5rem;
+}
+
+.form-radio-group > * {
+  cursor: pointer;
+}
+
+.additional-info > *:not(:last-child) {
+  margin-bottom: 2rem;
+}
+
+.question-group > *:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.question-group-title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 500;
+}
+
+.form-buttons > * {
+  padding-inline: 0.5em;
+  padding-block: 0.25em;
+  font-size: var(--_default-form-font-size);
+}
+
+#contact-form .form-buttons > .form-reset {
+  background-color: var(--color-dark-1);
+  color: var(--color-primary);
+  margin-right: 2.5rem;
+}
