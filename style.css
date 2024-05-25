@@ -431,10 +431,6 @@ main {
   margin-right: 0.5rem;
 }
 
-.form-radio-group > * {
-  cursor: pointer;
-}
-
 .additional-info > *:not(:last-child) {
   margin-bottom: 2rem;
 }
@@ -458,4 +454,20 @@ main {
   background-color: var(--color-dark-1);
   color: var(--color-primary);
   margin-right: 2.5rem;
+}
+
+/*--------------footer--------------*/
+footer {
+  background-color: var(--color-nav-footer);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: max(1.5rem, 3.5vw);
+  padding-block: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: max(3rem, 10vw);
+}
+
+.footer-link > * {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--color-external-links);
 }
