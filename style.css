@@ -1,5 +1,26 @@
+/*
+  Table of content:
+
+    1.General styles
+
+    2.Header
+
+    3.Main content
+
+    4.Banner
+
+    5.Contact form
+
+    6.Footer
+
+    7.Media queries
+*/
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/*==================================
+---------1.General styles-----------
+==================================*/
 :root {
   --color-primary: #c9a975;
   --color-secondary: #a68b60;
@@ -35,7 +56,9 @@ body {
   background-color: var(--color-primary);
 }
 
-/*----------header-----------*/
+/*==================================
+--------------2.Header--------------
+==================================*/
 header {
   background-color: var(--color-nav-footer);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -50,7 +73,6 @@ header {
 
 .logo {
   width: 90px;
-  height: 90px;
   margin-right: auto;
 }
 
@@ -62,8 +84,8 @@ header {
 .toggle-header-menu-icon,
 .close-header-menu-icon {
   font-size: 2.5rem;
-  transform: translateY(-1.35rem);
-  transition: opacity 250ms ease-in-out, transform 250ms ease-out;
+  transform: translateY(-50%);
+  transition: opacity 250ms, transform 250ms ease-out;
 }
 
 .close-header-menu-icon {
@@ -71,18 +93,14 @@ header {
 }
 
 .header-menu:has(> #toggle-header-menu:checked) .menu-icons > * {
-  transform: translateY(1.25rem);
+  transform: translateY(50%);
 }
 
-.header-menu:has(> #toggle-header-menu:checked)
-  .menu-icons
-  > .toggle-header-menu-icon {
+.header-menu:has(> #toggle-header-menu:checked) .toggle-header-menu-icon {
   opacity: 0;
 }
 
-.header-menu:has(> #toggle-header-menu:checked)
-  .menu-icons
-  > .close-header-menu-icon {
+.header-menu:has(> #toggle-header-menu:checked) .close-header-menu-icon {
   opacity: 1;
 }
 
@@ -93,13 +111,13 @@ header {
 .header-menu-links {
   list-style: none;
   background-color: var(--color-secondary);
-  padding: 15px;
+  padding: 1rem;
   position: absolute;
   right: 10px;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   visibility: hidden;
   transform: translateY(-2.5rem);
-  transition: transform 400ms ease-in-out, visibility 100ms 50ms ease-in-out;
+  transition: transform 300ms ease-out;
 }
 
 #toggle-header-menu:checked + .header-menu-links {
@@ -107,19 +125,19 @@ header {
   transform: translateY(0);
 }
 
-.header-menu-links > * {
+.header-menu-list-item {
   transform: translateY(-1.5rem);
   visibility: hidden;
-  transition: transform 200ms ease-in-out, visibility 100ms 50ms ease-in-out;
+  transition: transform 200ms ease-out;
 }
 
-#toggle-header-menu:checked + .header-menu-links > * {
+#toggle-header-menu:checked + .header-menu-links .header-menu-list-item {
   visibility: visible;
   transform: translateY(0);
 }
 
-.header-menu-links > *:not(:last-of-type) {
-  margin-bottom: 20px;
+.header-menu-list-item:not(:last-of-type) {
+  margin-bottom: 1.125rem;
 }
 
 .header-menu-link {
@@ -129,7 +147,9 @@ header {
   text-decoration: none;
 }
 
-/*----------main content-----------*/
+/*==================================
+-----------3.Main content-----------
+==================================*/
 main {
   background-color: var(--color-secondary);
   width: min(91vw, 1250px);
@@ -159,7 +179,7 @@ main {
   right: 1.5rem;
   filter: blur(3px);
   position: absolute;
-  bottom: -2svh;
+  bottom: -1em;
 }
 
 .name,
@@ -306,7 +326,9 @@ main {
   }
 }
 
-/*-------------banner--------------*/
+/*==================================
+--------------4.Banner--------------
+==================================*/
 .banner {
   width: min(91vw, 1125px);
   margin-inline: auto;
@@ -358,7 +380,9 @@ main {
   transform: scale(1.05, 1);
 }
 
-/*------------contact form------------*/
+/*==================================
+-----------5.Contact form-----------
+==================================*/
 #contact-form {
   --_default-form-font-size: clamp(1.125rem, 2.5vw, 1.35rem);
 
@@ -472,7 +496,9 @@ main {
   margin-right: 2.5rem;
 }
 
-/*--------------footer--------------*/
+/*==================================
+--------------6.Footer--------------
+==================================*/
 footer {
   background-color: var(--color-nav-footer);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -488,10 +514,17 @@ footer {
   color: var(--color-external-links);
 }
 
-/*------------media queries------------*/
+/*==================================
+----------7.Media queries-----------
+==================================*/
 @media (hover: hover) {
   .menu-icons > * {
     cursor: pointer;
+  }
+
+  .header-menu-links:hover {
+    cursor: pointer;
+    box-shadow: none;
   }
 
   .header-menu-link {
@@ -499,13 +532,17 @@ footer {
   }
 
   .header-menu-link::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
     height: 3px;
-    background-image: linear-gradient(90deg, var(--color-light-2), var(--color-dark-2));
+    background-image: linear-gradient(
+      90deg,
+      var(--color-light-2),
+      var(--color-dark-2)
+    );
     width: 0%;
     transition: width 300ms;
   }
@@ -539,11 +576,11 @@ footer {
     transform: scale(0);
     transition: transform 300ms;
   }
-  
+
   .banner > a::after {
     transform: scale(1, 0);
   }
-  
+
   .banner > a::before {
     transform: scale(0, 1);
   }
@@ -564,7 +601,7 @@ footer {
   .banner:hover > a::after {
     transform: scale(1, 1.05);
   }
-  
+
   .banner:hover > a::before {
     transform: scale(1.05, 1);
   }
